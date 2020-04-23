@@ -7,9 +7,11 @@
 
 int bytes[40000];
 
+// by P: '[' は '?' と '!' の間に含まれないので拡張すべき
 // '?' - '!' + 1 = 31 : mod31
+// '`' - '!' + 1 = 93 -  33 + 1 = mod61
 char shuffle(char c, int index) {
-   int var = (c + index - '!') % ('?' - '!' + 1);
+   int var = (c + index - '!') % ('`' - '!' + 1);
    return var + '!';
 }
 
