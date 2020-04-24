@@ -3,7 +3,10 @@
 // by hiromi-mi, same as public domain. See https://creativecommons.org/publicdomain/zero/1.0/legalcode.
 
 #include <stdio.h>
+#include <sys/ioctl.h>
 #include <errno.h>
+#include <unistd.h>
+#include <termios.h>
 
 int bytes[40000];
 
@@ -24,12 +27,23 @@ int main(int argc, char** argv) {
       return 1;
    }
    FILE *fp = NULL;
+   struct termios tm, tm_save;
+   int fd_stdin = fileno(stdin);
+
    if ((fp = fopen(argv[1], "r")) == NULL) {
       perror("File open error:");
       return 1;
    }
    fgets(buffer, 65536, fp);
    fclose(fp);
+
+   // https://linuxjm.osdn.jp/html/LDP_man-pages/man3/termios.3.html
+   // https://web-develop.hatenadiary.org/entry/20071112/1194882731
+   // ICANON can be disabled and input per every char
+   tcgetattr(fd_stdin, &tm);
+   tcgetattr(fd_stdin, &tm_save);
+   tm.c_lflag &= ~ICANON;
+   tcsetattr(fd_stdin, TCSADRAIN, &tm);
 
    int *ptr = bytes;
    long long index = 0;
@@ -50,7 +64,7 @@ int main(int argc, char** argv) {
          case '.':
             fputc(*ptr, stdout); pc++; break;
          case ',':
-            *ptr = fgetc(stdin);
+            *ptr = getchar();
             pc++; break;
          case '[':
             if (*ptr != 0) {
@@ -88,5 +102,6 @@ int main(int argc, char** argv) {
             break;
       }
    }
+   tcsetattr(fd_stdin, TCSADRAIN, &tm_save);
    return 0;
 }

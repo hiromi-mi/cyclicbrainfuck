@@ -81,7 +81,7 @@ Brainfuck のループ`[` と `]` では実現できないような脱出条件�
 
 ## `cat`
 ```
-,*Y**'%7#"!]\[[ZYXVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+;[
+,*Y**'%7#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+;[D
 ```
 
 ## License
