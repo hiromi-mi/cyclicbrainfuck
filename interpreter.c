@@ -9,11 +9,13 @@ int bytes[40000];
 
 // by P: '[' は '?' と '!' の間に含まれないので拡張すべき
 // '?' - '!' + 1 = 31 : mod31
-// '`' - '!' + 1 = 93 -  33 + 1 = mod61
+// ']' - '!' + 1 = 93 -  33 + 1 = mod61
 char shuffle(char c, int index) {
-   int var = (c + index - '!') % ('`' - '!' + 1);
+   int var = ((int)c + index - '!') % (']' - '!' + 1);
    return var + '!';
 }
+int parensis_stack[100];
+int parensis_stack_id = 0;
 
 int main(int argc, char** argv) {
    char buffer[65536];
@@ -46,11 +48,13 @@ int main(int argc, char** argv) {
          case '-':
             (*ptr)--; pc++; break;
          case '.':
-            putchar(*ptr); pc++; break;
+            fputc(*ptr, stdout); pc++; break;
          case ',':
-            *ptr = getchar(); pc++; break;
+            *ptr = fgetc(stdin);
+            pc++; break;
          case '[':
             if (*ptr != 0) {
+               parensis_stack[parensis_stack_id++] = pc;
                pc++;
                break;
             }
@@ -72,24 +76,12 @@ int main(int argc, char** argv) {
             break;
          case ']':
             if (*ptr == 0) {
+               parensis_stack[--parensis_stack_id] = 0;
                pc++;
                break;
             }
             cnt = 0;
-            for (;pc>=0;pc--) {
-               c = shuffle(buffer[pc], index);
-               // recounted [ (such in case ']' and here
-               if (c == ']') {
-                  cnt++;
-               }
-               if (c == '[') {
-                  cnt--;
-                  if (cnt == 0) {
-                     pc++; // Next to [
-                     break;
-                  }
-               }
-            }
+            pc = parensis_stack[parensis_stack_id-1] + 1;
             break;
          default:
             pc++;
