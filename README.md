@@ -57,7 +57,7 @@ Brainfuck のループ`[` と `]` では実現できないような脱出条件�
 簡単に動くプログラムを書きたいときには、`[]` の中を60命令に揃えることをオススメします。
 同じループをくりかえしても `+` は `+` 、`-` は `-` です。簡単です。
 
-## Hello, World
+## Hello, world!
 ```
 +*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!#2[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876546E10/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@BAP<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHJYEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWY+TSRQPONMLKJIHGFEDCBA@?>=<;:987657F210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:98768G3210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?AP<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEGVBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQS%NMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)(*9%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBDS[
 ```
