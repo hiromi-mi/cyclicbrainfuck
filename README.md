@@ -58,8 +58,11 @@ Brainfuck のループ`[` と `]` では実現できないような脱出条件�
 同じループをくりかえしても `+` は `+` 、`-` は `-` です。簡単です。
 
 ## Hello, World
-TODO: 考える
-Brainfuck ソースコードは愚直に書くと
+```
++*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!#2[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876546E10/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@BAP<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHJYEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWY+TSRQPONMLKJIHGFEDCBA@?>=<;:987657F210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:98768G3210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?AP<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEGVBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQS%NMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)(*9%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBDS[
+```
+
+対応する Brainfuck ソースコードが書け
 ```
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>
@@ -74,11 +77,6 @@ Brainfuck ソースコードは愚直に書くと
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>
 +++++++++++++++++++++++++++++++++.>
-```
-
-書き換え Cyclic Brainfuckソースコードは
-```
-+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!#2[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876546E10/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@BAP<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHJYEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWY+TSRQPONMLKJIHGFEDCBA@?>=<;:987657F210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:98768G3210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?AP<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEGVBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQS%NMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)(*9%$#"!]\[ZYXWVUTSRQPONMLKJIHGFEDCBDS[
 ```
 
 ## `cat`
