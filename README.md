@@ -6,6 +6,12 @@ Cyclic Brainfuck は Brainfuck をほんの少し変えただけの難解プロ�
 * 命令と無関係の文字は無視され、プログラム実行ステップ `step` が1増加します。
 * 残る言語仕様は Brainfuck と等価です。
 
+## 使い方
+```
+$ make
+$ ./cyclicbrainfuck cyclic.cyclicbf
+```
+
 ## セールスポイント
 
 お楽しみください。

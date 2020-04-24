@@ -1,2 +1,6 @@
-interpreter:	interpreter.c
-	gcc -g -Wall -Wextra interpreter.c -o interpreter
+cyclicbrainfuck:	cyclicbrainfuck.c
+	gcc -Wall -Wextra cyclicbrainfuck.c -o cyclicbrainfuck
+
+clean:
+	$(RM) -f cyclicbrainfuck
+.PHONY:	clean
