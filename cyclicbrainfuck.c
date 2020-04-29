@@ -23,7 +23,7 @@ int parensis_stack_id = 0;
 int main(int argc, char** argv) {
    char buffer[65536];
    if (argc <= 1) {
-      fprintf(stderr, "Usage: ./interpret filename.cyclicbf %d\n", -2%3);
+      fprintf(stderr, "Usage: ./cyclicbrainfuck filename.cyclicbf\n");
       return 1;
    }
    FILE *fp = NULL;
