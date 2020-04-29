@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: CC0-1.0
-// Cyclic Brainfuck
+// 2Cyclic Brainfuck
 // by hiromi-mi, same as public domain. See https://creativecommons.org/publicdomain/zero/1.0/legalcode.
 
 #include <stdio.h>
@@ -13,15 +13,40 @@ int bytes[40000];
 // by P: '[' は '?' と '!' の間に含まれないので拡張すべき
 // '?' - '!' + 1 = 31 : mod31
 // ']' - '!' + 1 = 93 -  33 + 1 = mod61
-char shuffle(char c, int index) {
-   int var = ((int)c + index - '!') % (']' - '!' + 1);
-   return var + '!';
+
+char shuffle(char c, int index, int s, char* table) {
+   int var = ((int)c + index - '!') % s + '!';
+   return table[var];
 }
-int parensis_stack[100];
-int parensis_stack_id = 0;
+
+int seed_table(char* table, int len) {
+   for (int index=0;index < len;index++) {
+      table[index] = index;
+   }
+   return 0;
+}
+
+int init_table(char* table_buffer, char* table) {
+   int obj = 0;
+   for (int index=0;table_buffer[index] != '\0';index++) {
+      if (index % 2 == 0) {
+         // read as character
+         obj = table_buffer[index];
+      } else {
+         // write to obj
+         table[obj] = table_buffer[index];
+      }
+   }
+   return 0;
+}
 
 int main(int argc, char** argv) {
    char buffer[65536];
+   char table_buffer[65536];
+
+   int parensis_stack[100];
+   int parensis_stack_id = 0;
+
    if (argc <= 1) {
       fprintf(stderr, "Usage: ./cyclicbrainfuck filename.cyclicbf\n");
       return 1;
@@ -35,7 +60,16 @@ int main(int argc, char** argv) {
       return 1;
    }
    fgets(buffer, 65536, fp);
+   if (feof(fp)) {
+      table_buffer[0] = '\0';
+   } else {
+      fgets(table_buffer, 65536, fp);
+   }
    fclose(fp);
+
+   char table[128];
+   seed_table(table, 128);
+   init_table(table_buffer, table);
 
    // https://linuxjm.osdn.jp/html/LDP_man-pages/man3/termios.3.html
    // https://web-develop.hatenadiary.org/entry/20071112/1194882731
@@ -50,8 +84,18 @@ int main(int argc, char** argv) {
    int pc = 0;
    char c = '\0';
    int cnt = 0;
+   int s = 61;
+
    for (index=0;buffer[pc] != '\0';index++) {
-      c = shuffle(buffer[pc], index);
+      // Change to New Modular
+      if (buffer[pc] < 0) {
+         s = -buffer[pc];
+         // fprintf(stderr, "New Modular is: %d\n", s);
+         index--;
+         pc++;
+         continue;
+      }
+      c = shuffle(buffer[pc], index, s, table);
       switch(c) {
          case '>':
             ptr++; pc++; break;
@@ -74,7 +118,7 @@ int main(int argc, char** argv) {
             }
             cnt = 0;
             for (;buffer[pc]!='\0';pc++) {
-               c = shuffle(buffer[pc], index);
+               c = shuffle(buffer[pc], index, s, table);
                // recounted [ (such in case '[' and here
                if (c == '[') {
                   cnt++;

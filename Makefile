@@ -1,10 +1,10 @@
-all: cyclicbrainfuck 2cyclicbrainfuck
+all: 1cyclicbrainfuck cyclicbrainfuck
 
+1cyclicbrainfuck:	1cyclicbrainfuck.c
+	gcc -Wall -Wextra 1cyclicbrainfuck.c -o 1cyclicbrainfuck
 cyclicbrainfuck:	cyclicbrainfuck.c
-	gcc -Wall -Wextra cyclicbrainfuck.c -o cyclicbrainfuck
-2cyclicbrainfuck:	2cyclicbrainfuck.c
-	gcc -Wall -Wextra 2cyclicbrainfuck.c -o 2cyclicbrainfuck
+	gcc -g -Wall -Wextra cyclicbrainfuck.c -o cyclicbrainfuck
 
 clean:
-	$(RM) -f cyclicbrainfuck 2cyclicbrainfuck
+	$(RM) -f 1cyclicbrainfuck cyclicbrainfuck
 .PHONY:	clean all
