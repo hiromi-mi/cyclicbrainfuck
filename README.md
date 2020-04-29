@@ -90,9 +90,7 @@ Brainfuck のループ`[` と `]` では実現できないような脱出条件�
 ```
 >*Y9()8$%"#]![\YZWXUVSTQROPMNKLIJGHEFCDAB?@=>;<9:78563412/0-.+,[D
 ```
-
-## License
-Same as public domain (CC0-1.0). See COPYING
+(入力としては 1 から254 までを想定)
 
 ## Author
 [hiromi-mi](https://hiromi-mi.github.io)
