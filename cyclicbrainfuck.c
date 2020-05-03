@@ -67,8 +67,8 @@ int main(int argc, char** argv) {
    }
    fclose(fp);
 
-   char table[128];
-   seed_table(table, 128);
+   char table[256];
+   seed_table(table, 256);
    init_table(table_buffer, table);
 
    // https://linuxjm.osdn.jp/html/LDP_man-pages/man3/termios.3.html
