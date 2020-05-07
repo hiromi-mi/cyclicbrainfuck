@@ -1,9 +1,26 @@
-# CyclicBrainfuck
+# Cyclic Brainfuck
 
 Cyclic Brainfuck は Brainfuck をほんの少し変えただけの難解プログラミング言語です。
 
+## 更新履歴
+
+### Version 2.0.1
+
+* `\n` を命令の一部として扱い予期せぬ命令が実行されていた問題を修正
+* `.` コマンドとして `fputc()` のあとに強制的に `flush()` するように
+
+### Version 2
+
+* 命令配置を変更可能に
+* 法の変更コマンドを追加
+
+### Version 1
+
+* 初版
+
 ## Brainfuck との言語仕様の違い
 Cyclic Brainfuck のソースコードは以下の1行あるいは2行からなります。
+なお、改行コードは LF を想定しています。
 ```
 コマンド
 ```

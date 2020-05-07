@@ -86,16 +86,24 @@ int main(int argc, char** argv) {
    int cnt = 0;
    int s = 61;
 
-   for (index=0;buffer[pc] != '\0';index++) {
+   /*
+   * gets() では改行コードも含まれる
+   * ここで '\n' が来たときに終了するようでないと、 '\n' が予期せぬ命令として扱われて
+   * しまう.
+   */
+   for (index=0;buffer[pc] != '\0' && buffer[pc] != '\n';index++) {
       // Change to New Modular
       if (buffer[pc] < 0) {
          s = -buffer[pc];
-         // fprintf(stderr, "New Modular is: %d\n", s);
+         //fprintf(stderr, "New Modular is: %d\n", s);
          index--;
          pc++;
          continue;
       }
       c = shuffle(buffer[pc], index, s, table);
+      //c = buffer[pc];
+      //fprintf(stderr, "%c%d%c\n", c, pc, buffer[pc]);
+      //   fprintf(stderr, "%c", c);
       switch(c) {
          case '>':
             ptr++; pc++; break;
@@ -106,7 +114,8 @@ int main(int argc, char** argv) {
          case '-':
             (*ptr)--; pc++; break;
          case '.':
-            fputc(*ptr, stdout); pc++; break;
+            fputc(*ptr, stdout); fflush(stdout); 
+            pc++; break;
          case ',':
             *ptr = getchar();
             pc++; break;
@@ -119,7 +128,9 @@ int main(int argc, char** argv) {
             cnt = 0;
             for (;buffer[pc]!='\0';pc++) {
                c = shuffle(buffer[pc], index, s, table);
+               //c = buffer[pc];
                // recounted [ (such in case '[' and here
+               //fprintf(stderr, "===%c %c %d===\n" , buffer[pc], c, pc);
                if (c == '[') {
                   cnt++;
                }
