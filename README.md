@@ -137,6 +137,13 @@ Brainfuck のループ`[` と `]` では実現できないような脱出条件�
 ```
 (入力としては 1 から254 までを想定)
 
+## ほかの例
+
+### Esolang Golf Contest #6
+[shinh さんによる 55バイト解答](https://https://gist.github.com/shinh/fac3952336776d8dc34433a94474bdad)
+
+こちらは法を9 として `>` が複数の意味を持つ高度なプログラミングが行なわれています.
+
 ## Author
 [hiromi-mi](https://hiromi-mi.github.io)
 
