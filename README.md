@@ -141,6 +141,8 @@ Brainfuck のループ`[` と `]` では実現できないような脱出条件�
 ## ほかの例
 
 ### Esolang Golf Contest #6
+[WriteUp](https://github.com/hakatashi/esolang-battle/wiki/%E7%AC%AC6%E5%9B%9E%E6%9D%B1%E5%A4%A7%E4%BA%AC%E5%A4%A7%E3%82%B3%E3%83%BC%E3%83%89%E3%82%B4%E3%83%AB%E3%83%95%E5%A4%A7%E4%BC%9A-Writeup#cyclic-brainfuck-_primenumber-57-bytes)
+
 [shinh さんによる 55バイト解答](https://https://gist.github.com/shinh/fac3952336776d8dc34433a94474bdad)
 
 こちらは法を9 として `>` が複数の意味を持つ高度なプログラミングが行なわれています.
